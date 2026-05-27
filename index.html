@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aloeworld | Perfis LSF e Kits Estruturais</title>
+  <meta name="description" content="Perfis LSF, perfis C, U e Omega, kits estruturais engenheirados em aço galvanizado S280GD/S350GD, Z275 ou superior." />
+  <style>
+    :root {
+      --azul-escuro: #073256;
+      --azul: #1b74b2;
+      --azul-medio: #2c86c7;
+      --azul-claro: #e8f3fa;
+      --verde: #7baa39;
+      --verde-claro: #9ecf56;
+      --texto: #31556e;
+      --linha: #dbe8ef;
+      --fundo: #f5f8fb;
+      --branco: #ffffff;
+      --sombra: 0 24px 70px rgba(7, 50, 86, 0.12);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--azul-escuro);
+      background: var(--fundo);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255,255,255,0.82);
+      border-bottom: 1px solid rgba(219,232,239,0.9);
+    }
+
+    .nav {
+      height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo-box {
+      background: var(--branco);
+      border: 1px solid rgba(219,232,239,0.95);
+      border-radius: 18px;
+      padding: 10px 14px;
+      box-shadow: 0 12px 30px rgba(7,50,86,0.08);
+    }
+
+    .logo-box img { height: 48px; width: auto; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(7,50,86,0.76);
+    }
+
+    .nav-links a:hover { color: var(--azul); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 15px 22px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.22s ease;
+      box-shadow: 0 18px 35px rgba(7,50,86,0.13);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--azul); color: var(--branco); }
+    .btn-primary:hover { background: #0b5f99; }
+    .btn-green { background: var(--verde); color: var(--branco); }
+    .btn-green:hover { background: #68952f; }
+    .btn-outline { background: var(--branco); color: var(--azul-escuro); border: 1px solid rgba(27,116,178,0.18); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 96px;
+      background:
+        radial-gradient(circle at 16% 8%, rgba(123,170,57,0.25), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(27,116,178,0.26), transparent 32%),
+        linear-gradient(135deg, #ffffff 0%, #eef6fb 45%, #dcecf5 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 120px;
+      background: linear-gradient(to top, var(--fundo), transparent);
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .hero-logo {
+      display: inline-flex;
+      margin-bottom: 28px;
+      padding: 16px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid rgba(255,255,255,0.95);
+      border-radius: 28px;
+      box-shadow: var(--sombra);
+    }
+
+    .hero-logo img { height: 72px; width: auto; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 15px;
+      border-radius: 999px;
+      color: #4f7f1f;
+      background: rgba(123,170,57,0.12);
+      border: 1px solid rgba(123,170,57,0.28);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    h1 {
+      margin: 26px 0 0;
+      font-size: clamp(40px, 5.2vw, 70px);
+      line-height: 0.96;
+      letter-spacing: -2.4px;
+      color: var(--azul-escuro);
+    }
+
+    .hero p {
+      margin: 26px 0 0;
+      max-width: 680px;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--texto);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 38px;
+    }
+
+    .stat {
+      padding: 22px 16px;
+      text-align: center;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: 0 18px 40px rgba(7,50,86,0.07);
+    }
+
+    .stat strong { display: block; font-size: 28px; color: var(--azul); }
+    .stat:nth-child(2) strong { color: var(--verde); }
+    .stat small { display: block; margin-top: 4px; color: var(--texto); font-weight: 700; }
+
+    .visual-card {
+      position: relative;
+      padding: 24px;
+      border-radius: 42px;
+      background: rgba(255,255,255,0.75);
+      border: 1px solid white;
+      box-shadow: var(--sombra);
+    }
+
+    .visual-inner {
+      padding: 26px;
+      border-radius: 34px;
+      background: linear-gradient(135deg, var(--azul-escuro), #0b4a7b);
+      color: white;
+      min-height: 500px;
+    }
+
+    .visual-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 26px;
+    }
+
+    .visual-head small {
+      display: block;
+      color: #bfe0f6;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .visual-head h3 { margin: 6px 0 0; font-size: 26px; }
+
+    .steel-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 9px;
+    }
+
+    .steel-bar {
+      height: 56px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .steel-bar.green { background: rgba(123,170,57,0.72); border-color: rgba(158,207,86,0.6); }
+
+    .mini-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mini-card strong { display: block; font-size: 18px; }
+    .mini-card span { color: #d7edf9; font-size: 13px; }
+
+    section { padding: 88px 0; }
+
+    .section-title { max-width: 780px; margin-bottom: 44px; }
+    .eyebrow {
+      margin: 0;
+      color: var(--verde);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 12px 0 0;
+      color: var(--azul-escuro);
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -1.5px;
+    }
+    .section-title p {
+      margin: 18px 0 0;
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--texto);
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      padding: 26px;
+      border-radius: 30px;
+      background: white;
+      border: 1px solid var(--linha);
+      box-shadow: 0 18px 45px rgba(7,50,86,0.06);
+      transition: 0.22s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(123,170,57,0.55);
+      box-shadow: 0 28px 70px rgba(27,116,178,0.13);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      font-size: 28px;
+      background: var(--azul-claro);
+      color: var(--azul);
+    }
+
+    .product-card:hover .icon { background: var(--verde); color: white; }
+    .product-card .category { margin: 20px 0 0; color: var(--verde); font-weight: 900; font-size: 13px; }
+    .product-card h3 { margin: 8px 0 0; font-size: 24px; color: var(--azul-escuro); }
+    .product-card p { color: #46677c; line-height: 1.55; font-size: 14px; }
+    .product-card ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; gap: 10px; }
+    .product-card li { font-size: 14px; font-weight: 800; color: rgba(7,50,86,0.85); }
+    .product-card li::before { content: "✓"; color: var(--verde); margin-right: 8px; font-weight: 900; }
+
+    .dark-section {
+      position: relative;
+      overflow: hidden;
+      background: var(--azul-escuro);
+      color: white;
+    }
+    .dark-section::before {
+      content: "";
+      position: absolute;
+      right: 3%; top: -12%; width: 360px; height: 360px;
+      background: rgba(27,116,178,0.55);
+      border-radius: 50%; filter: blur(90px);
+    }
+    .dark-section::after {
+      content: "";
+      position: absolute;
+      left: 5%; bottom: -18%; width: 360px; height: 360px;
+      background: rgba(123,170,57,0.42);
+      border-radius: 50%; filter: blur(90px);
+    }
+    .dark-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    .dark-section .eyebrow { color: var(--verde-claro); }
+    .dark-section h2 { color: white; }
+    .dark-section p { color: #d7edf9; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 32px;
+    }
+    .feature {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .feature strong { display: block; margin: 10px 0 8px; color: white; }
+    .feature span { color: #d7edf9; font-size: 14px; line-height: 1.55; }
+
+    .process {
+      padding: 28px;
+      border-radius: 34px;
+      background: white;
+      color: var(--azul-escuro);
+      box-shadow: 0 26px 80px rgba(0,0,0,0.20);
+    }
+    .process h3 { margin: 0 0 24px; font-size: 28px; }
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 16px;
+      padding: 0 0 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--linha);
+    }
+    .step:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
+    .step-number {
+      width: 46px; height: 46px;
+      display: grid; place-items: center;
+      border-radius: 50%;
+      background: var(--verde);
+      color: white;
+      font-weight: 900;
+    }
+    .step strong { display: block; margin-bottom: 5px; }
+    .step span { color: #46677c; font-size: 14px; line-height: 1.5; }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .panel {
+      padding: 30px;
+      background: white;
+      border: 1px solid var(--linha);
+      border-radius: 34px;
+      box-shadow: var(--sombra);
+    }
+
+    .input-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; font-size: 14px; font-weight: 900; color: var(--azul-escuro); margin-bottom: 8px; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--linha);
+      border-radius: 18px;
+      background: var(--fundo);
+      color: var(--azul-escuro);
+      padding: 15px 16px;
+      font: inherit;
+      outline: none;
+    }
+    input:focus, textarea:focus { border-color: var(--azul); box-shadow: 0 0 0 4px rgba(27,116,178,0.1); }
+    textarea { min-height: 150px; resize: vertical; }
+
+    .total-box {
+      margin-top: 22px;
+      padding: 28px;
+      border-radius: 28px;
+      color: white;
+      background: linear-gradient(135deg, var(--azul), var(--azul-escuro));
+      box-shadow: 0 18px 40px rgba(27,116,178,0.2);
+    }
+    .total-box small { display: block; color: #bfe0f6; letter-spacing: 3px; text-transform: uppercase; font-weight: 900; }
+    .total-box strong { display: block; margin-top: 8px; font-size: 42px; letter-spacing: -1.5px; }
+    .form-actions { display: grid; gap: 12px; margin-top: 18px; }
+
+    .contact-lines {
+      margin-top: 22px;
+      display: grid;
+      gap: 12px;
+      color: var(--texto);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    footer {
+      border-top: 1px solid var(--linha);
+      background: white;
+      padding: 42px 0;
+      text-align: center;
+      color: #46677c;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    footer .logo-box { display: inline-flex; margin-bottom: 18px; }
+    footer .logo-box img { height: 64px; }
+
+    @media (max-width: 980px) {
+      .hero-grid, .dark-grid, .quote-grid { grid-template-columns: 1fr; }
+      .products { grid-template-columns: repeat(2, 1fr); }
+      .visual-inner { min-height: auto; }
+    }
+
+    @media (max-width: 720px) {
+      .nav { height: auto; padding: 14px 0; }
+      .nav-links { display: none; }
+      .logo-box img { height: 38px; }
+      .hero-logo img { height: 48px; }
+      .hero { padding: 42px 0 72px; }
+      .hero-stats, .products, .features, .mini-cards, .input-grid { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -1.2px; }
+      .btn { width: 100%; }
+      .steel-grid { grid-template-columns: repeat(4, 1fr); }
+      .steel-bar { height: 44px; }
+      section { padding: 64px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo-box" href="#top" aria-label="Aloeworld Unipessoal, Lda">
+        <img src="logo-aloeworld.jpg" alt="Aloeworld Unipessoal, Lda" />
+      </a>
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#engenheirado">Kit engenheirado</a>
+        <a href="#orcamento">Orçamento</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <a class="btn btn-primary" href="#contacto">Pedir cotação</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-logo">
+            <img src="logo-aloeworld.jpg" alt="Aloeworld Unipessoal, Lda" />
+          </div>
+          <div class="tag">✦ Perfis LSF · S280GD / S350GD · Z275+</div>
+          <h1>Perfis LSF e kits estruturais com rigor, rapidez e preço claro.</h1>
+          <p>
+            Comercialização de perfis C, U e Omega em aço galvanizado para construção em Light Steel Frame. Soluções simples ou kits engenheirados com corte, furação, etiquetagem, mapas de montagem e transporte.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#orcamento">Calcular orçamento →</a>
+            <a class="btn btn-outline" href="#produtos">Ver perfis disponíveis</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><strong>C/U</strong><small>Perfis estruturais</small></div>
+            <div class="stat"><strong>Z275+</strong><small>Proteção zinco</small></div>
+            <div class="stat"><strong>€/kg</strong><small>Preço claro</small></div>
+          </div>
+        </div>
+
+        <div class="visual-card">
+          <div class="visual-inner">
+            <div class="visual-head">
+              <div>
+                <small>Kit exemplo</small>
+                <h3>Moradia térrea · 1.840 kg</h3>
+              </div>
+              <div style="font-size:42px">🏗️</div>
+            </div>
+            <div class="steel-grid" id="steelGrid"></div>
+            <div class="mini-cards">
+              <div class="mini-card"><strong>Corte</strong><span>à medida</span></div>
+              <div class="mini-card"><strong>Furação</strong><span>técnica</span></div>
+              <div class="mini-card"><strong>Mapas</strong><span>montagem</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Produtos</p>
+          <h2>Perfis para obra, armazém ou kit completo.</h2>
+          <p>Fornecimento para construtores, equipas de montagem, investidores e empresas que pretendem estruturas em aço leve com boa relação preço/qualidade.</p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <div class="icon">▣</div>
+            <p class="category">Montantes estruturais</p>
+            <h3>Perfil C90 / C100</h3>
+            <p>Perfis C para paredes exteriores, interiores, travamentos e soluções LSF residenciais.</p>
+            <ul><li>S280GD / S350GD</li><li>Z275 ou superior</li><li>1,5 mm a 2,5 mm</li><li>Com ou sem furação</li></ul>
+          </article>
+          <article class="product-card">
+            <div class="icon">▤</div>
+            <p class="category">Guias e canais</p>
+            <h3>Perfil U93 / U100</h3>
+            <p>Guias inferiores e superiores para montagem de painéis, paredes e divisórias técnicas.</p>
+            <ul><li>Aço galvanizado</li><li>Corte à medida</li><li>Compatível com C90/C100</li><li>Fornecimento por kit</li></ul>
+          </article>
+          <article class="product-card">
+            <div class="icon">▥</div>
+            <p class="category">Estrutura reforçada</p>
+            <h3>C150 / C200 / C250</h3>
+            <p>Perfis para coberturas, vãos superiores, madres, asnas e elementos estruturais de maior exigência.</p>
+            <ul><li>Alta resistência</li><li>Uso em cobertura</li><li>Furação técnica</li><li>Apoio a projeto</li></ul>
+          </article>
+          <article class="product-card">
+            <div class="icon">✓</div>
+            <p class="category">Pronto a montar</p>
+            <h3>Kit LSF Engenheirado</h3>
+            <p>Estrutura completa com cálculo, modelação, corte, furação, etiquetagem e mapas de montagem.</p>
+            <ul><li>Lista de peças</li><li>Mapas de montagem</li><li>Paletização por zonas</li><li>Preço por kg</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark-section" id="engenheirado">
+      <div class="container dark-grid">
+        <div>
+          <p class="eyebrow">Kit engenheirado</p>
+          <h2>Do desenho à entrega em obra.</h2>
+          <p>Solução para construtores, investidores e equipas de montagem que procuram reduzir erros, desperdício e tempo de obra.</p>
+          <div class="features">
+            <div class="feature"><div>🛡️</div><strong>Aço certificado</strong><span>Perfis em aço galvanizado S280GD ou S350GD, com proteção Z275 ou superior.</span></div>
+            <div class="feature"><div>📐</div><strong>Corte à medida</strong><span>Perfis standard ou cortados, furados e preparados para montagem em obra.</span></div>
+            <div class="feature"><div>📄</div><strong>Mapas de montagem</strong><span>Lista de peças, identificação individual e organização por paredes, cobertura ou asnas.</span></div>
+            <div class="feature"><div>🚚</div><strong>Entrega em obra</strong><span>Transporte para Portugal Continental e Espanha, com carga organizada.</span></div>
+          </div>
+        </div>
+        <div class="process">
+          <h3>Processo de fornecimento</h3>
+          <div class="step"><div class="step-number">1</div><div><strong>Envio da planta, medições ou ficheiro técnico</strong><span>Recebemos a informação base para análise preliminar.</span></div></div>
+          <div class="step"><div class="step-number">2</div><div><strong>Análise preliminar e quantificação estrutural</strong><span>Estimativa de perfis, pesos, acessórios e necessidades técnicas.</span></div></div>
+          <div class="step"><div class="step-number">3</div><div><strong>Orçamento por kg, metro linear ou kit completo</strong><span>Proposta clara, comparável e orientada ao custo real da estrutura.</span></div></div>
+          <div class="step"><div class="step-number">4</div><div><strong>Fabrico, corte, furação e etiquetagem</strong><span>Preparação técnica para reduzir erros e acelerar a montagem.</span></div></div>
+          <div class="step"><div class="step-number">5</div><div><strong>Entrega em obra com documentação técnica</strong><span>Envio organizado por zonas de montagem, paredes, cobertura ou asnas.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="orcamento">
+      <div class="container quote-grid">
+        <div>
+          <div class="section-title">
+            <p class="eyebrow">Calculadora rápida</p>
+            <h2>Estime o custo do seu kit LSF.</h2>
+            <p>Use esta ferramenta para obter uma referência inicial. O valor final depende do cálculo, espessuras, furação, transporte e complexidade da estrutura.</p>
+          </div>
+          <div class="panel">
+            <div class="input-grid">
+              <div>
+                <label for="kg">Peso estimado kg</label>
+                <input id="kg" type="number" value="1840" min="0" step="1" />
+              </div>
+              <div>
+                <label for="precoKg">Preço referência €/kg</label>
+                <input id="precoKg" type="number" value="3.60" min="0" step="0.10" />
+              </div>
+            </div>
+            <div class="total-box">
+              <small>Total estimado sem IVA</small>
+              <strong id="total">0,00 €</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" id="contacto">
+          <h2 style="font-size:34px; margin-top:0">Pedir cotação</h2>
+          <p style="color:var(--texto); line-height:1.65">Envie a planta, localização da obra e tipo de solução pretendida. Responderemos com orçamento preliminar.</p>
+          <div style="display:grid; gap:14px; margin-top:20px">
+            <div>
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" placeholder="O seu nome" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" placeholder="o-seu-email@email.pt" />
+            </div>
+            <div>
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem">Pretendo orçamento para perfis LSF / kit engenheirado.</textarea>
+            </div>
+            <button class="btn btn-green" type="button" onclick="enviarPedido()">Enviar pedido por email</button>
+            <a class="btn btn-outline" href="https://wa.me/351968917391" target="_blank" rel="noreferrer">Contactar por WhatsApp</a>
+          </div>
+          <div class="contact-lines">
+            <div>📞 +351 968 917 391</div>
+            <div>✉️ geral@aloeworld-consulting.pt</div>
+            <div>📍 Aloeworld Unipessoal, Lda · Portugal · Espanha · Europa</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo-box">
+      <img src="logo-aloeworld.jpg" alt="Aloeworld Unipessoal, Lda" />
+    </div>
+    <div>© 2026 Aloeworld Unipessoal, Lda. Perfis em aço leve estrutural para construção industrializada.</div>
+  </footer>
+
+  <script>
+    const grid = document.getElementById('steelGrid');
+    for (let i = 0; i < 54; i++) {
+      const item = document.createElement('div');
+      item.className = 'steel-bar' + ((i % 7 === 0 || i % 11 === 0) ? ' green' : '');
+      grid.appendChild(item);
+    }
+
+    const kgInput = document.getElementById('kg');
+    const precoInput = document.getElementById('precoKg');
+    const totalEl = document.getElementById('total');
+
+    function formatEUR(value) {
+      return new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR' }).format(value || 0);
+    }
+
+    function calcular() {
+      const kg = Number(kgInput.value || 0);
+      const preco = Number(precoInput.value || 0);
+      totalEl.textContent = formatEUR(kg * preco);
+    }
+
+    kgInput.addEventListener('input', calcular);
+    precoInput.addEventListener('input', calcular);
+    calcular();
+
+    function enviarPedido() {
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const mensagem = document.getElementById('mensagem').value;
+      const kg = kgInput.value;
+      const precoKg = precoInput.value;
+      const total = totalEl.textContent;
+
+      const assunto = encodeURIComponent('Pedido de orçamento - Perfis LSF');
+      const corpo = encodeURIComponent(
+        `Nome: ${nome}\nEmail: ${email}\n\n${mensagem}\n\nPeso estimado: ${kg} kg\nPreço referência: ${precoKg} €/kg\nTotal estimado sem IVA: ${total}`
+      );
+
+      window.location.href = `mailto:geral@aloeworld-consulting.pt?subject=${assunto}&body=${corpo}`;
+    }
+  </script>
+</body>
+</html>
